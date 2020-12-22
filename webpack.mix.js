@@ -19,4 +19,4 @@ mix.webpackConfig({
             '@': path.resolve(__dirname, 'resources/js'),
         },
     },
-})
+}).version()
