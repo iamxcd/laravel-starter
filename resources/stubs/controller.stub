@@ -1,0 +1,15 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyModelClass as Model;
+use RequestNamespace;
+
+class DummyClass extends Controller
+{
+    public function __construct(Model $model)
+    {
+        $this->model = $model;
+        $this->request = app(RequestDummy::class);
+    }
+}

@@ -3,6 +3,8 @@
 /public/storage
 /storage/*.key
 /vendor
+/LaravelBuilder
+/laravel-crud
 .env
 .env.backup
 .phpunit.result.cache
