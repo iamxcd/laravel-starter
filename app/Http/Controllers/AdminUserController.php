@@ -41,8 +41,8 @@ class AdminUserController extends Controller
         return $this->response([
             "roles" => ['test'], // 占位
             "name" => $user->name,
-            "avatar" => "",
-            "introduction" => ""
+            "avatar" => $user->avatar,
+            "introduction" =>  $user->introduction,
         ], '获取成功');
     }
 }

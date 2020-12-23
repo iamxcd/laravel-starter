@@ -27,6 +27,8 @@ class AdminUserFactory extends Factory
             'username' => $name,
             'phone' => $this->faker->phoneNumber,
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'avatar' => url('/static/images/default_avatar.jpeg'),
+            'introduction' => '这家伙还没有简介'
         ];
     }
 }
