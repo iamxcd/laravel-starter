@@ -19,6 +19,12 @@ import './utils/error-log' // error log
 
 import * as filters from './filters' // global filters
 
+import Avue from '@smallwei/avue';
+import '@smallwei/avue/lib/index.css';
+Vue.use(Avue);
+
+import request from './utils/request'
+window.axios = request
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium', // set element-ui default size

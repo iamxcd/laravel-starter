@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminRoleController;
 use App\Http\Controllers\AdminUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,4 +20,7 @@ Route::post('login', [AdminUserController::class, 'login'])->name('login');
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('me', [AdminUserController::class, 'me'])->name('me');
+
+    Route::apiResource('role', AdminRoleController::class);
+    Route::apiResource('permission', AdminPermissionController::class);
 });
