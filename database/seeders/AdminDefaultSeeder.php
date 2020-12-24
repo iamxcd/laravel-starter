@@ -14,7 +14,7 @@ class AdminDefaultSeeder extends Seeder
      */
     public function run()
     {
-        $admin =  AdminUser::factory(10)->create()->first();
+        $admin =  AdminUser::factory(50)->create()->first();
         $admin->username = 'admin';
         $admin->save();
     }

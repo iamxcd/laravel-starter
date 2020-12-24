@@ -3,8 +3,10 @@
     <avue-crud
       ref="crud"
       :option="option"
-      :page.sync="pagination"
+      :page="pagination"
       :table-loading="loading"
+      @current-change="currentChange"
+      @size-change="sizeChange"
       @on-load="getList"
       @row-update="rowUpdate"
       @row-save="rowSave"
@@ -25,11 +27,11 @@ import { getList, edit, add, del } from "@/api/base.js";
 import { tableDefaultData, responseDataFormat } from "@/utils/tableDataHandle";
 import indexOption from "./index-option";
 export default {
-  name: "Role",
+  name: "Admin",
   data() {
     return {
       ...tableDefaultData(),
-      uri: "role",
+      uri: "adminuser",
     };
   },
   created() {},
@@ -43,9 +45,19 @@ export default {
       this.loading = true;
       getList(this.uri, {
         ...this.queryParams,
+        ...this.pagination,
       }).then((res) => {
         responseDataFormat(res, this);
       });
+    },
+    currentChange(page) {
+      this.pagination.page = page;
+      this.getList();
+    },
+    sizeChange(page_size) {
+      this.pagination.page = 1;
+      this.pagination.page_size = page_size;
+      this.getList();
     },
     rowSave(row, done, loading) {
       add(

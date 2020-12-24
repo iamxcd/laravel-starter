@@ -174,13 +174,26 @@ export const asyncRoutes = [
   {
     path: '/admin',
     component: Layout,
+    name: 'admin',
+    redirect: '/admin/admin-user',
+    meta: {
+      title: '系统管理',
+      icon: 'lock',
+    },
     children: [
       {
-        path: 'index',
+        path: '/admin/admin-user',
+        component: () => import('@/views/admin-user/index'),
+        name: 'adminuser',
+        meta: { title: '管理员', icon: 'icon', noCache: true }
+      },
+      {
+        path: '/admin/role',
         component: () => import('@/views/role/index'),
-        name: 'admin',
-        meta: { title: '系统管理', icon: 'icon', noCache: true }
-      }
+        name: 'role',
+        meta: { title: '角色', icon: 'icon', noCache: true }
+      },
+
     ]
   },
 

@@ -21,6 +21,8 @@ Route::post('login', [AdminUserController::class, 'login'])->name('login');
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('me', [AdminUserController::class, 'me'])->name('me');
 
+
+    Route::apiResource('adminuser', AdminUserController::class);
     Route::apiResource('role', AdminRoleController::class);
     Route::apiResource('permission', AdminPermissionController::class);
 });
