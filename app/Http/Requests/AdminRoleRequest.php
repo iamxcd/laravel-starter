@@ -28,14 +28,16 @@ class AdminRoleRequest extends FormRequest
         if (method_exists($this, $ruleMethod)) {
             return $this->{$ruleMethod}();
         }
-        
+
         return [];
     }
 
     private function storeRule()
     {
         $rule = [
-        #DummyRule
+            'name' => 'string|required',
+            'tag' => 'string|required',
+            'remark' => 'string|nullable'
         ];
 
         return $rule;
@@ -44,7 +46,9 @@ class AdminRoleRequest extends FormRequest
     private function updateRule()
     {
         $rule = [
-        #DummyRule
+            'name' => 'string',
+            'tag' => 'string',
+            'remark' => 'string|nullable'
         ];
 
         return $rule;
@@ -53,7 +57,9 @@ class AdminRoleRequest extends FormRequest
     public function attributes()
     {
         return [
-        #DummyAttr
+            'name' => '角色名称',
+            'tag' => '角色标记',
+            'remark' => '备注'
         ];
     }
 

@@ -188,7 +188,7 @@ export const asyncRoutes = [
         meta: { title: '管理员', icon: 'icon', noCache: true }
       },
       {
-        path: '/admin/role',
+        path: '/admin/admin-role',
         component: () => import('@/views/admin-role/index'),
         name: 'role',
         meta: { title: '角色', icon: 'icon', noCache: true }

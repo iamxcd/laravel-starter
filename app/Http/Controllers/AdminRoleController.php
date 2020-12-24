@@ -14,5 +14,6 @@ class AdminRoleController extends Controller
     {
         $this->model = $model;
         $this->request = app(AdminRoleRequest::class);
+        $this->filterableFields = ['name', 'tag'];
     }
 }
