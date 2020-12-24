@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminRoleController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\CommonController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,9 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('adminuser', AdminUserController::class);
     Route::apiResource('role', AdminRoleController::class);
     Route::apiResource('permission', AdminPermissionController::class);
+
+    /**
+     * 文件上传
+     */
+    Route::post('upload', [CommonController::class, 'upload'])->name('upload');
 });

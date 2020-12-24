@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Iamxcd\LaravelCRUD\Traits\HasOverrideFailedValidation;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AdminUserRequest extends FormRequest
@@ -35,7 +36,11 @@ class AdminUserRequest extends FormRequest
     private function storeRule()
     {
         $rule = [
-            #DummyRule
+            'name' => 'string|required',
+            'username' => 'string|required|unique:admin_users',
+            'phone' => 'string|nullable',
+            'introduction' => 'string|nullable',
+            'avatar' => 'string|nullable'
         ];
 
         return $rule;
@@ -44,7 +49,11 @@ class AdminUserRequest extends FormRequest
     private function updateRule()
     {
         $rule = [
-            #DummyRule
+            'name' => 'string',
+            'username' => 'string',
+            'phone' => 'string|nullable',
+            'introduction' => 'string|nullable',
+            'avatar' => 'string|nullable'
         ];
 
         return $rule;
@@ -61,7 +70,11 @@ class AdminUserRequest extends FormRequest
     public function attributes()
     {
         return [
-            'username' => '用户名',
+            'name' => '姓名',
+            'username' => '登录用户名',
+            'phone' => '手机号码',
+            'introduction' => '个人简介',
+            'avatar' => '头像',
             'password' => '密码',
         ];
     }

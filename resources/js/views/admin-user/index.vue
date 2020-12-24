@@ -60,14 +60,7 @@ export default {
       this.getList();
     },
     rowSave(row, done, loading) {
-      add(
-        Object.assign(
-          {
-            createUser: this.userInfo.name,
-          },
-          row
-        )
-      )
+      add(this.uri, row)
         .then(() => {
           this.$message.success("新增成功");
           done();
@@ -78,14 +71,7 @@ export default {
         });
     },
     rowUpdate(row, index, done, loading) {
-      update(
-        Object.assign(
-          {
-            updateUser: this.userInfo.name,
-          },
-          row
-        )
-      )
+      edit(this.uri, row.id, row)
         .then(() => {
           this.$message.success("修改成功");
           done();

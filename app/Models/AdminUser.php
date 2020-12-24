@@ -15,13 +15,25 @@ class AdminUser extends Authenticatable
 
     protected $fillable = [
         'name',
-        'user_name',
-        'phone'
+        'username',
+        'phone',
+        'introduction',
+        'avatar'
     ];
 
     protected $hidden = [
         'password'
     ];
+
+    public static function booting()
+    {
+        static::creating(function ($user) {
+            /**ss
+             * 默认密码
+             */
+            $user->password = bcrypt(123456);
+        });
+    }
 
     protected function serializeDate(DateTimeInterface $date)
     {

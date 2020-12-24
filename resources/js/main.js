@@ -23,8 +23,9 @@ import Avue from '@smallwei/avue';
 import '@smallwei/avue/lib/index.css';
 Vue.use(Avue);
 
-import request from './utils/request'
-window.axios = request
+import http from './utils/request'
+window.axios = http
+Vue.prototype.$axios = http
 
 Vue.use(Element, {
   size: Cookies.get('size') || 'medium', // set element-ui default size

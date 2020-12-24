@@ -23,3 +23,7 @@ export const get = (url, params) => {
     params
   })
 }
+
+export function uploadUrl(type = 'image') {
+  return '/upload';
+}
