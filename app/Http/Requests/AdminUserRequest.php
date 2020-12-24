@@ -59,6 +59,27 @@ class AdminUserRequest extends FormRequest
         return $rule;
     }
 
+    private function updateProfileRule()
+    {
+        $rule = [
+            'name' => 'string',
+            'phone' => 'string|nullable',
+            'introduction' => 'string|nullable',
+            'avatar' => 'string|nullable'
+        ];
+
+        return $rule;
+    }
+
+    public function updatePwdRule()
+    {
+        return [
+            'original_pwd' => 'required|string',
+            'password' => 'required|string'
+        ];
+    }
+
+
     public function loginRule()
     {
         return [
@@ -76,6 +97,7 @@ class AdminUserRequest extends FormRequest
             'introduction' => '个人简介',
             'avatar' => '头像',
             'password' => '密码',
+            'original_pwd' => '原密码'
         ];
     }
 

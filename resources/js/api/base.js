@@ -14,6 +14,10 @@ export const edit = (url, id, data) => {
   return request.put(`${url}/${id}`, data)
 }
 
+export const put = (url, data) => {
+  return request.put(`${url}`, data)
+}
+
 export const del = (url, id) => {
   return request.delete(`${url}/${id}`)
 }
