@@ -1,7 +1,6 @@
 import tableConfig from '@/avuejs/table-config'
 import { uploadUrl } from "@/api/base.js";
 export default (self) => {
-    console.log(uploadUrl())
     return {
         ...tableConfig(),
         index: false,
@@ -14,6 +13,7 @@ export default (self) => {
             {
                 label: '姓名',
                 prop: 'name',
+                search: true,
                 rules: [{
                     required: true,
                     message: "请输入姓名",
@@ -33,7 +33,7 @@ export default (self) => {
             },
             {
                 label: '手机',
-                prop: 'phone'
+                prop: 'phone',
             },
             {
                 label: '简介',

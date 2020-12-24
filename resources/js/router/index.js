@@ -189,7 +189,7 @@ export const asyncRoutes = [
       },
       {
         path: '/admin/role',
-        component: () => import('@/views/role/index'),
+        component: () => import('@/views/admin-role/index'),
         name: 'role',
         meta: { title: '角色', icon: 'icon', noCache: true }
       },

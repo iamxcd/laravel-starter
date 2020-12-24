@@ -16,6 +16,7 @@ class AdminUserController extends Controller
     {
         $this->model = $model;
         $this->request = app(AdminUserRequest::class);
+        $this->filterableFields = ['name'];
     }
 
     public function login()
