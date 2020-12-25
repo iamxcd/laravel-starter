@@ -79,4 +79,11 @@ class AdminUserController extends Controller
         $token->delete();
         return $this->responseMessage('退出成功');
     }
+
+    public function userRoles($user_id)
+    {
+        $user = $this->model::query()->findOrFail($user_id);
+        $roles = $user->roles()->select(['id', 'name'])->get();
+        return  $this->response(['roles' => $roles], '获取成功');
+    }
 }

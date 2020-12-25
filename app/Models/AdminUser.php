@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\HasBaseConfig;
+use App\Models\Traits\HasRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -11,7 +12,7 @@ use DateTimeInterface;
 
 class AdminUser extends Authenticatable
 {
-    use HasFactory, Notifiable, HasApiTokens;
+    use HasFactory, Notifiable, HasApiTokens, HasRole;
 
     protected $fillable = [
         'name',

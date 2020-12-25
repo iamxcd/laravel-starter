@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\AdminRole;
 use App\Models\AdminUser;
 use Illuminate\Database\Seeder;
 
@@ -17,5 +18,7 @@ class AdminDefaultSeeder extends Seeder
         $admin =  AdminUser::factory(50)->create()->first();
         $admin->username = 'admin';
         $admin->save();
+
+        AdminRole::factory(20)->create();
     }
 }

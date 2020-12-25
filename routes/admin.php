@@ -28,6 +28,10 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('adminuser', AdminUserController::class);
     Route::apiResource('role', AdminRoleController::class);
     Route::apiResource('permission', AdminPermissionController::class);
+    Route::get('user/{id}/roles', [AdminUserController::class, 'userRoles'])->name('userRoles');
+
+    Route::get('/option/roles', [AdminRoleController::class, 'option'])->name('options.roles');
+
 
     /**
      * 文件上传
