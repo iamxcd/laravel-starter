@@ -15,5 +15,6 @@ class AdminPermissionController extends Controller
     {
         $this->model = $model;
         $this->request = app(AdminPermissionRequest::class);
+        $this->filterableFields = ['name', 'tag'];
     }
 }
