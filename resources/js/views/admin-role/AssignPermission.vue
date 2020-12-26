@@ -2,12 +2,12 @@
   <el-dialog
     destroy-on-close
     append-to-body
-    title="分配角色"
+    title="分配权限"
     :visible.sync="isShow"
     width="50%"
   >
     <el-transfer
-      v-model="selectedRoles"
+      v-model="selectedPermissions"
       :props="propsOption"
       :data="data"
     ></el-transfer>
@@ -23,7 +23,7 @@
 import { get, post } from "@/api/base.js";
 export default {
   props: {
-    allRole: {
+    allPermission: {
       type: Array,
       default: () => [],
     },
@@ -31,9 +31,9 @@ export default {
   data() {
     return {
       data: [],
-      selectedRoles: [],
+      selectedPermissions: [],
       isShow: false,
-      userId: null,
+      roleId: null,
       propsOption: {
         key: "value",
         label: "label",
@@ -42,20 +42,20 @@ export default {
     };
   },
   watch: {
-    allRole(val) {
+    allPermission(val) {
       this.data = val;
     },
   },
   methods: {
-    open(userId) {
-      this.userId = userId;
-      this.getRoles(userId);
+    open(roleId) {
+      this.roleId = roleId;
+      this.getRoles(roleId);
       this.isShow = true;
     },
     onSave() {
-      post("assign-role", {
-        user_id: this.userId,
-        role_ids: this.selectedRoles,
+      post("assign-permission", {
+        role_id: this.roleId,
+        permission_ids: this.selectedPermissions,
       }).then((res) => {
         this.$message.success(res.message);
       });
@@ -63,11 +63,11 @@ export default {
     },
     onClose() {
       this.isShow = false;
-      this.selectedRoles = [];
+      this.selectedPermissions = [];
     },
-    getRoles(userId) {
-      get(`user/${userId}/roles`).then((res) => {
-        this.selectedRoles = res.data.roles;
+    getRoles(roleId) {
+      get(`role/${roleId}/permissions`).then((res) => {
+        this.selectedPermissions = res.data.permissions;
       });
     },
   },

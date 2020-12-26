@@ -17,4 +17,20 @@ class AdminRoleController extends Controller
         $this->request = app(AdminRoleRequest::class);
         $this->filterableFields = ['name', 'tag'];
     }
+
+    public function rolePermission($role_id)
+    {
+        $role = $this->model::query()->findOrFail($role_id);
+        $permissions = $role->permissions()->pluck('id');
+        return  $this->response(['permissions' => $permissions], '获取成功');
+    }
+
+
+    public function assignPermission()
+    {
+        $data = $this->request->validated();
+        $role = $this->model::query()->find($data['role_id']);
+        $role->assignPermission($data['permission_ids']);
+        return $this->responseMessage('授权成功');
+    }
 }

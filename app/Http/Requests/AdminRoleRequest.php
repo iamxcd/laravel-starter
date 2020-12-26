@@ -54,6 +54,17 @@ class AdminRoleRequest extends FormRequest
         return $rule;
     }
 
+    public function assignPermissionRule()
+    {
+        $rule = [
+            'role_id' => 'integer|required|exists:admin_roles,id',
+            'permission_ids' => 'array',
+            'permission_ids.*' => 'integer|exists:admin_permissions,id',
+        ];
+
+        return $rule;
+    }
+
     public function attributes()
     {
         return [

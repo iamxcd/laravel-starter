@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\AdminRole;
+use App\Models\AdminPermission;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AdminRoleFactory extends Factory
+class AdminPermissionFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = AdminRole::class;
+    protected $model = AdminPermission::class;
 
     /**
      * Define the model's default state.
@@ -23,7 +23,7 @@ class AdminRoleFactory extends Factory
     {
         $name = $this->faker->unique()->name();
         return [
-            'name' => $name . '-角色',
+            'name' => $name . '-权限',
             'tag' => $this->faker->uuid,
         ];
     }

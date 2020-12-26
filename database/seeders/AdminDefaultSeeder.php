@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\AdminPermission;
 use App\Models\AdminRole;
 use App\Models\AdminUser;
 use Illuminate\Database\Seeder;
@@ -20,5 +21,6 @@ class AdminDefaultSeeder extends Seeder
         $admin->save();
 
         AdminRole::factory(20)->create();
+        AdminPermission::factory(20)->create();
     }
 }
