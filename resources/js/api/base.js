@@ -10,6 +10,10 @@ export const add = (url, data) => {
   return request.post(url, data)
 }
 
+export const post = (url, data) => {
+  return request.post(url, data)
+}
+
 export const edit = (url, id, data) => {
   return request.put(`${url}/${id}`, data)
 }

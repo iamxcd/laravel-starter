@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AdminUser as Model;
 use App\Http\Requests\AdminUserRequest;
+use App\Models\User;
 use Iamxcd\LaravelCRUD\Traits\HasCrud;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -83,7 +84,15 @@ class AdminUserController extends Controller
     public function userRoles($user_id)
     {
         $user = $this->model::query()->findOrFail($user_id);
-        $roles = $user->roles()->select(['id', 'name'])->get();
+        $roles = $user->roles()->pluck('id');
         return  $this->response(['roles' => $roles], '获取成功');
+    }
+
+    public function assignRole()
+    {
+        $data = $this->request->validated();
+        $user = $this->model::query()->find($data['user_id']);
+        $user->assignRole($data['role_ids']);
+        return $this->responseMessage('分配角色成功');
     }
 }

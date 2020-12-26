@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::put('me', [AdminUserController::class, 'updateProfile'])->name('updateProfile');
     Route::put('update-pwd', [AdminUserController::class, 'updatePwd'])->name('updatePwd');
     Route::post('logout', [AdminUserController::class, 'logout'])->name('logout');
+    Route::post('assign-role', [AdminUserController::class, 'assignRole'])->name('assignRole');
 
     Route::apiResource('adminuser', AdminUserController::class);
     Route::apiResource('role', AdminRoleController::class);
