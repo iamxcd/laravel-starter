@@ -12,7 +12,7 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
-        "iamxcd/laravel-crud": "dev-develop",
+        "iamxcd/laravel-crud": "^1.0",
         "laravel/framework": "^8.12",
         "laravel/sanctum": "^2.8",
         "laravel/tinker": "^2.5"
@@ -24,7 +24,7 @@
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.3.3",
-        "songbai/laravel-builder": "dev-master"
+        "songbai/laravel-builder": "^1.1"
     },
     "config": {
         "optimize-autoloader": true,
@@ -66,14 +66,6 @@
         "packagist": {
             "type": "composer",
             "url": "https://mirrors.aliyun.com/composer/"
-        },
-        "0": {
-            "type": "path",
-            "url": "./LaravelBuilder"
-        },
-        "1": {
-            "type": "path",
-            "url": "./laravel-crud"
         }
     }
 }

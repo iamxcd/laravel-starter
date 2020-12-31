@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56d568479d4e6b40e6cb92d6eb1411c7",
+    "content-hash": "b1bf81d427791bd2ab4e3fef7fa80f4a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -972,11 +972,23 @@
         },
         {
             "name": "iamxcd/laravel-crud",
-            "version": "dev-develop",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iamxcd/laravel-crud.git",
+                "reference": "16ea68441bab7a92398878b3f31607b7a4f226eb"
+            },
             "dist": {
-                "type": "path",
-                "url": "./laravel-crud",
-                "reference": "b076e5554a6ed60817228b68c6adc9a9f488e669"
+                "type": "zip",
+                "url": "https://api.github.com/repos/iamxcd/laravel-crud/zipball/16ea68441bab7a92398878b3f31607b7a4f226eb",
+                "reference": "16ea68441bab7a92398878b3f31607b7a4f226eb",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "laravel/framework": "^5.5 || ^6.0 || ^7.0 || ^8.0",
@@ -995,6 +1007,7 @@
                     "Iamxcd\\LaravelCRUD\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "mit"
             ],
@@ -1004,9 +1017,11 @@
                     "email": "songbai_x@qq.com"
                 }
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/iamxcd/laravel-crud/issues",
+                "source": "https://github.com/iamxcd/laravel-crud/tree/1.0.2"
+            },
+            "time": "2020-12-26T10:07:47+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8344,11 +8359,23 @@
         },
         {
             "name": "songbai/laravel-builder",
-            "version": "dev-master",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iamxcd/LaravelBuilder.git",
+                "reference": "058beb8738609196e6b694db10e9ee2193534e41"
+            },
             "dist": {
-                "type": "path",
-                "url": "./LaravelBuilder",
-                "reference": "5f719c8c6cb6516ee5d4ad27fecb92af53bb84ab"
+                "type": "zip",
+                "url": "https://api.github.com/repos/iamxcd/LaravelBuilder/zipball/058beb8738609196e6b694db10e9ee2193534e41",
+                "reference": "058beb8738609196e6b694db10e9ee2193534e41",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
             },
             "require": {
                 "doctrine/dbal": "^2.10",
@@ -8368,6 +8395,7 @@
                     "SongBai\\LaravelBuilder\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "mit"
             ],
@@ -8378,9 +8406,11 @@
                 }
             ],
             "description": "laravel 代码生成",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/iamxcd/LaravelBuilder/issues",
+                "source": "https://github.com/iamxcd/LaravelBuilder/tree/1.1.1"
+            },
+            "time": "2020-12-23T01:08:39+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -8441,10 +8471,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "iamxcd/laravel-crud": 20,
-        "songbai/laravel-builder": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
