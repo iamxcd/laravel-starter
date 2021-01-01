@@ -1,5 +1,5 @@
 <template>
-  <el-form :model="obj" :rules="rules">
+  <el-form ref="pwd" :model="obj" :rules="rules">
     <el-form-item label="原密码" prop="original_pwd">
       <el-input type="password" v-model="obj.original_pwd" />
     </el-form-item>
@@ -46,13 +46,17 @@ export default {
         this.$message.error("两次输入密码不一致");
         return;
       }
-      put("update-pwd", this.obj).then((res) => {
-        this.$message.success("修改成功");
-        this.obj = {
-          original_pwd: "",
-          password: "",
-          password1: "",
-        };
+      this.$refs.pwd.validate((valid) => {
+        if (valid) {
+          put("update-pwd", this.obj).then((res) => {
+            this.$message.success("修改成功");
+            this.obj = {
+              original_pwd: "",
+              password: "",
+              password1: "",
+            };
+          });
+        }
       });
     },
   },

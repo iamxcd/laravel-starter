@@ -63,4 +63,10 @@ class CommonController extends Controller
             'name' => $origineName
         ], '上传成功');
     }
+
+    public function dictionary()
+    {
+        $data = config('dictionary');
+        return $this->response($data, '获取成功');
+    }
 }

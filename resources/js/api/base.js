@@ -35,3 +35,7 @@ export const get = (url, params) => {
 export function uploadUrl(type = 'image') {
   return '/upload';
 }
+
+export function dictionary() {
+  return request.get('dictionary')
+}

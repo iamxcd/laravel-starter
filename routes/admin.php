@@ -32,7 +32,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::apiResource('adminuser', AdminUserController::class);
     Route::apiResource('role', AdminRoleController::class);
     Route::apiResource('permission', AdminPermissionController::class);
-    
+
     Route::get('user/{id}/roles', [AdminUserController::class, 'userRoles'])->name('userRoles');
     Route::get('role/{id}/permissions', [AdminRoleController::class, 'rolePermission'])->name('rolePermission');
 
@@ -44,4 +44,8 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
      * 文件上传
      */
     Route::post('upload', [CommonController::class, 'upload'])->name('upload');
+    /**
+     * 字典数据
+     */
+    Route::get('dictionary', [CommonController::class, 'dictionary'])->name('dictionary');
 });
