@@ -8359,16 +8359,16 @@
         },
         {
             "name": "songbai/laravel-builder",
-            "version": "1.1.2",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/iamxcd/LaravelBuilder.git",
-                "reference": "0c1206bbe0d6fc5ea5ac17b435c6300a2f2bc8fe"
+                "reference": "ed15b3e42b33553607ba68d0a4a68ac099998954"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iamxcd/LaravelBuilder/zipball/0c1206bbe0d6fc5ea5ac17b435c6300a2f2bc8fe",
-                "reference": "0c1206bbe0d6fc5ea5ac17b435c6300a2f2bc8fe",
+                "url": "https://api.github.com/repos/iamxcd/LaravelBuilder/zipball/ed15b3e42b33553607ba68d0a4a68ac099998954",
+                "reference": "ed15b3e42b33553607ba68d0a4a68ac099998954",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -8408,9 +8408,9 @@
             "description": "laravel 代码生成",
             "support": {
                 "issues": "https://github.com/iamxcd/LaravelBuilder/issues",
-                "source": "https://github.com/iamxcd/LaravelBuilder/tree/1.1.2"
+                "source": "https://github.com/iamxcd/LaravelBuilder/tree/1.1.4"
             },
-            "time": "2021-01-01T03:09:52+00:00"
+            "time": "2021-01-04T01:24:22+00:00"
         },
         {
             "name": "theseer/tokenizer",

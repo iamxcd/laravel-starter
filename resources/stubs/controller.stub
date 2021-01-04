@@ -4,9 +4,12 @@ namespace DummyNamespace;
 
 use DummyModelClass as Model;
 use RequestNamespace;
+use Iamxcd\LaravelCRUD\Traits\HasCrud;
 
 class DummyClass extends Controller
 {
+    use HasCrud;
+
     public function __construct(Model $model)
     {
         $this->model = $model;
