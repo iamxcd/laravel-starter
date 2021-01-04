@@ -34,6 +34,7 @@ export default (self) => {
             {
                 label: '手机',
                 prop: 'phone',
+                search: true,
             },
             {
                 label: '简介',

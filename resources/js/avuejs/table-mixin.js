@@ -10,8 +10,11 @@ export default {
             buildRules: {}
         }
     },
+    created() {
+        this.getDataList()
+    },
     methods: {
-        getList() {
+        getDataList() {
             this.loading = true;
             getList(this.uri, {
                 ...this.queryParams,
@@ -22,19 +25,19 @@ export default {
         },
         currentChange(page) {
             this.pagination.page = page;
-            this.getList();
+            this.getDataList();
         },
         sizeChange(page_size) {
             this.pagination.page = 1;
             this.pagination.page_size = page_size;
-            this.getList();
+            this.getDataList();
         },
         rowSave(row, done, loading) {
             add(this.uri, row)
                 .then(() => {
                     this.$message.success("新增成功");
                     done();
-                    this.getList();
+                    this.getDataList();
                 })
                 .catch(() => {
                     loading();
@@ -45,7 +48,7 @@ export default {
                 .then(() => {
                     this.$message.success("修改成功");
                     done();
-                    this.getList();
+                    this.getDataList();
                 })
                 .catch(() => {
                     loading();
@@ -63,23 +66,23 @@ export default {
                 })
                 .then(() => {
                     this.$message.success("删除成功");
-                    this.getList();
+                    this.getDataList();
                 });
         },
         searchChange(params, done) {
             if (done) done();
             this.queryParams = buildQueryParams(params, this.buildRules);
             this.pagination.page = 1;
-            this.getList();
+            this.getDataList();
             this.$message.success("搜索成功");
         },
         searchReset() {
             this.queryParams = {};
             this.pagination.page = 1;
-            this.getList();
+            this.getDataList();
         },
         refreshChange() {
-            this.getList();
+            this.getDataList();
             this.$message.success("刷新成功");
         },
     }

@@ -7,7 +7,6 @@
       :table-loading="loading"
       @current-change="currentChange"
       @size-change="sizeChange"
-      @on-load="getList"
       @row-update="rowUpdate"
       @row-save="rowSave"
       @row-del="rowDel"
@@ -49,6 +48,7 @@ export default {
       roles: [],
       buildRules: {
         name: "like",
+        phone: "like",
       },
     };
   },

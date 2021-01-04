@@ -972,16 +972,16 @@
         },
         {
             "name": "iamxcd/laravel-crud",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/iamxcd/laravel-crud.git",
-                "reference": "16ea68441bab7a92398878b3f31607b7a4f226eb"
+                "reference": "cdae11a0bc0f682aa4993d05d9750a2bf637326d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/iamxcd/laravel-crud/zipball/16ea68441bab7a92398878b3f31607b7a4f226eb",
-                "reference": "16ea68441bab7a92398878b3f31607b7a4f226eb",
+                "url": "https://api.github.com/repos/iamxcd/laravel-crud/zipball/cdae11a0bc0f682aa4993d05d9750a2bf637326d",
+                "reference": "cdae11a0bc0f682aa4993d05d9750a2bf637326d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -1019,9 +1019,9 @@
             ],
             "support": {
                 "issues": "https://github.com/iamxcd/laravel-crud/issues",
-                "source": "https://github.com/iamxcd/laravel-crud/tree/1.0.2"
+                "source": "https://github.com/iamxcd/laravel-crud/tree/1.0.3"
             },
-            "time": "2020-12-26T10:07:47+00:00"
+            "time": "2021-01-04T10:13:39+00:00"
         },
         {
             "name": "laravel/framework",

@@ -7,7 +7,6 @@
       :table-loading="loading"
       @current-change="currentChange"
       @size-change="sizeChange"
-      @on-load="getList"
       @row-update="rowUpdate"
       @row-save="rowSave"
       @row-del="rowDel"
@@ -48,6 +47,10 @@ export default {
     return {
       uri: "role",
       permission: [],
+      buildRules: {
+        name: "like",
+        tag: "like",
+      },
     };
   },
   created() {
