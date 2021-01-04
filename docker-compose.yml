@@ -1,0 +1,35 @@
+version: "3"
+services:
+    app:
+        build: ./docker/images/php7.3-apache
+        restart: always
+        volumes:
+            - "$PWD:/var/www/html"
+            - "$PWD/docker/config/sites/:/etc/apache2/sites-available"
+            - "$PWD/docker/config/php/:/usr/local/etc/php"
+        ports:
+            - "9000:80"
+    queue:
+        build: ./docker/images/php7.3-apache
+        restart: always
+        command: "php artisan queue:work"
+        volumes:
+            - "$PWD:/var/www/html"
+            - "$PWD/docker/config/sites/:/etc/apache2/sites-available"
+            - "$PWD/docker/config/php/:/usr/local/etc/php"
+    db:
+        image: "mysql:5.7"
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+        volumes:
+            - "$PWD/docker/database:/var/lib/mysql"
+            - "$PWD/docker/config/mysql/conf.d:/etc/mysql/conf.d"
+            - "$PWD/docker/config/mysql/mysql.conf.d:/etc/mysql/mysql.conf.d"
+        ports:
+            - 9006:3306
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 9007:8080
