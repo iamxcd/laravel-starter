@@ -16,6 +16,13 @@ class AdminDefaultSeeder extends Seeder
      */
     public function run()
     {
+        if (config('app.env') != 'production') {
+            return $this->devSeeder();
+        }
+    }
+
+    public function devSeeder()
+    {
         $admin =  AdminUser::factory(50)->create()->first();
         $admin->username = 'admin';
         $admin->save();

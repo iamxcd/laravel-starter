@@ -47,6 +47,9 @@ export default {
     return {
       uri: "adminuser",
       roles: [],
+      buildRules: {
+        name: "like",
+      },
     };
   },
   created() {

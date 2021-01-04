@@ -1,11 +1,13 @@
 import { tableDefaultData, responseDataFormat } from "@/utils/tableDataHandle";
 import { getList, edit, add, del } from "@/api/base.js";
+import buildQueryParams from "@/utils/build-query-params";
 
 export default {
     data() {
         return {
             ...tableDefaultData(),
             uri: "",
+            buildRules: {}
         }
     },
     methods: {
@@ -66,7 +68,7 @@ export default {
         },
         searchChange(params, done) {
             if (done) done();
-            this.queryParams = params;
+            this.queryParams = buildQueryParams(params, this.buildRules);
             this.pagination.page = 1;
             this.getList();
             this.$message.success("搜索成功");
