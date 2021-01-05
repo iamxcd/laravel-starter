@@ -1,1 +1,1 @@
-# 基于laravel vue 的启动项目
+# 整合laravel vue-element-admin 的启动项目
