@@ -10,6 +10,8 @@
       v-model="selectedPermissions"
       :props="propsOption"
       :data="data"
+      :titles="['未分配', '已分配']"
+      filterable
     ></el-transfer>
 
     <span slot="footer" class="dialog-footer">

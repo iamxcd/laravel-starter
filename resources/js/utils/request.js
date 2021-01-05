@@ -70,6 +70,16 @@ service.interceptors.response.use(
   },
   error => {
     console.log('err' + error) // for debug
+
+    const { response: { status } } = error
+    if (status == 403) {
+      Message({
+        message: '没有权限',
+        type: 'error',
+        duration: 5 * 1000
+      })
+      return Promise.reject(error)
+    }
     Message({
       message: error.message,
       type: 'error',
