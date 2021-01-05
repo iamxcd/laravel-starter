@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class Admin权限sTableSeeder extends Seeder
+class AdminPermissionsTableSeeder extends Seeder
 {
 
     /**
