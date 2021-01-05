@@ -6,12 +6,6 @@ Vue.use(Router)
 /* Layout */
 import Layout from '@/layout'
 
-/* Router Modules */
-import componentsRouter from './modules/components'
-import chartsRouter from './modules/charts'
-import tableRouter from './modules/table'
-import nestedRouter from './modules/nested'
-
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -23,7 +17,7 @@ import nestedRouter from './modules/nested'
  * redirect: noRedirect           if set noRedirect will no redirect in the breadcrumb
  * name:'router-name'             the name is used by <keep-alive> (must set!!!)
  * meta : {
-    roles: ['admin','editor']    control the page roles (you can set multiple roles)
+    permission: 'router-name.menu'    这里有调整 不通过角色 通过权限来控制菜单 暂时不用后端存菜单
     title: 'title'               the name show in sidebar and breadcrumb (recommend set)
     icon: 'svg-name'/'el-icon-x' the icon show in the sidebar
     noCache: true                if set true, the page will no be cached(default is false)
@@ -99,7 +93,6 @@ export const constantRoutes = [
   }
 ]
 
-
 export const asyncRoutes = [
   {
     path: '/admin',
@@ -109,19 +102,30 @@ export const asyncRoutes = [
     meta: {
       title: '系统管理',
       icon: 'el-icon-setting',
+      permission: 'admin.menu',
     },
     children: [
       {
         path: '/admin/admin-user',
         component: () => import('@/views/admin-user/index'),
         name: 'adminuser',
-        meta: { title: '管理员', icon: 'el-icon-user', noCache: true }
+        meta: {
+          title: '人员',
+          icon: 'el-icon-user',
+          noCache: true,
+          permission: 'adminuser.menu',
+        }
       },
       {
         path: '/admin/admin-role',
         component: () => import('@/views/admin-role/index'),
         name: 'role',
-        meta: { title: '角色', icon: 'el-icon-edit', noCache: true }
+        meta: {
+          title: '角色',
+          icon: 'el-icon-edit',
+          noCache: true,
+          permission: 'role.menu',
+        }
       },
       {
         path: '/admin/admin-permission',

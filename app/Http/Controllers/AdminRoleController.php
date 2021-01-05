@@ -6,6 +6,7 @@ use App\Models\AdminRole as Model;
 use App\Http\Requests\AdminRoleRequest;
 use Iamxcd\LaravelCRUD\Traits\HasCrud;
 use Iamxcd\LaravelCRUD\Traits\HasOption;
+use Illuminate\Support\Facades\Artisan;
 
 class AdminRoleController extends Controller
 {
@@ -31,6 +32,8 @@ class AdminRoleController extends Controller
         $data = $this->request->validated();
         $role = $this->model::query()->find($data['role_id']);
         $role->assignPermission($data['permission_ids']);
+        // 清理缓存
+        Artisan::call('cache:clear');
         return $this->responseMessage('授权成功');
     }
 }

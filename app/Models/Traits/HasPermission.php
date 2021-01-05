@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 trait HasPermission
 {
 
-    public function Permissions(): BelongsToMany
+    public function permissions(): BelongsToMany
     {
         return $this->belongsToMany(AdminPermission::class, 'admin_role_permissions', 'role_id', 'permission_id');
     }

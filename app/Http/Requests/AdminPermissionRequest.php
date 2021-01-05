@@ -23,20 +23,21 @@ class AdminPermissionRequest extends FormRequest
      */
     public function rules()
     {
-        
         $actionMethod = request()->route()->getActionMethod();
         $ruleMethod = $actionMethod . 'Rule';
         if (method_exists($this, $ruleMethod)) {
             return $this->{$ruleMethod}();
         }
-        
+
         return [];
     }
 
     private function storeRule()
     {
         $rule = [
-        #DummyRule
+            'name' => 'required|string',
+            'tag' => 'required|string',
+            'remark' => 'nullable|string'
         ];
 
         return $rule;
@@ -45,7 +46,9 @@ class AdminPermissionRequest extends FormRequest
     private function updateRule()
     {
         $rule = [
-        #DummyRule
+            'name' => 'required|string',
+            'tag' => 'required|string',
+            'remark' => 'nullable|string'
         ];
 
         return $rule;
@@ -54,7 +57,9 @@ class AdminPermissionRequest extends FormRequest
     public function attributes()
     {
         return [
-        #DummyAttr
+            'name' => '权限名称',
+            'tag' => '权限标签',
+            'remark' => '备注'
         ];
     }
 

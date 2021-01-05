@@ -16,18 +16,22 @@ class AdminDefaultSeeder extends Seeder
      */
     public function run()
     {
+
+        $this->call(AdminRolesTableSeeder::class);
+        $this->call(AdminPermissionsTableSeeder::class);
+        $this->call(AdminUsersTableSeeder::class);
+
         if (config('app.env') != 'production') {
-            return $this->devSeeder();
+            AdminUser::factory(50)->create();
         }
-    }
 
-    public function devSeeder()
-    {
-        $admin =  AdminUser::factory(50)->create()->first();
-        $admin->username = 'admin';
-        $admin->save();
-
-        AdminRole::factory(20)->create();
-        AdminPermission::factory(20)->create();
+        /**
+         * 授权
+         */
+        $permissions = AdminPermission::query()->pluck('id')->toArray();
+        $admin = AdminRole::query()->find(1);
+        $admin->assignPermission($permissions);
+        $user =  AdminUser::query()->find(1);
+        $user->assignRole([$admin->id]);
     }
 }

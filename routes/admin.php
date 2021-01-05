@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login', [AdminUserController::class, 'login'])->name('login');
 
-Route::group(['middleware' => 'auth:sanctum'], function () {
+Route::group(['middleware' => ['auth:sanctum', 'verify.api-permission']], function () {
     Route::get('me', [AdminUserController::class, 'me'])->name('me');
     Route::put('me', [AdminUserController::class, 'updateProfile'])->name('updateProfile');
     Route::put('update-pwd', [AdminUserController::class, 'updatePwd'])->name('updatePwd');

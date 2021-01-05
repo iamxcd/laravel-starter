@@ -44,6 +44,8 @@ class CreateAdminUsersTable extends Migration
         Schema::create('admin_role_users', function (Blueprint $table) {
             $table->integer('role_id')->comment('角色ID');
             $table->integer('user_id')->comment('用户ID');
+            $table->index('role_id');
+            $table->index('user_id');
             $table->index(['role_id', 'user_id']);
             $table->timestamps();
         });
@@ -51,6 +53,8 @@ class CreateAdminUsersTable extends Migration
         Schema::create('admin_role_permissions', function (Blueprint $table) {
             $table->integer('role_id')->comment('角色ID');
             $table->integer('permission_id')->comment('权限ID');
+            $table->index('role_id');
+            $table->index('permission_id');
             $table->index(['role_id', 'permission_id']);
             $table->timestamps();
         });

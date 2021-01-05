@@ -6,6 +6,7 @@ use App\Models\AdminUser as Model;
 use App\Http\Requests\AdminUserRequest;
 use App\Models\User;
 use Iamxcd\LaravelCRUD\Traits\HasCrud;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -41,7 +42,8 @@ class AdminUserController extends Controller
     {
         $user = Auth::user();
         return $this->response([
-            "roles" => ['test'], // 占位
+            "roles" => $user->allRoles(),
+            "permissions" => $user->allPermission(),
             "info" => $user
         ], '获取成功');
     }
@@ -93,6 +95,9 @@ class AdminUserController extends Controller
         $data = $this->request->validated();
         $user = $this->model::query()->find($data['user_id']);
         $user->assignRole($data['role_ids']);
+
+        // 清理缓存
+        Artisan::call('cache:clear');
         return $this->responseMessage('分配角色成功');
     }
 }
