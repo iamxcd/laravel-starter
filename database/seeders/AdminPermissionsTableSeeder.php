@@ -16,9 +16,9 @@ class AdminPermissionsTableSeeder extends Seeder
     {
 
 
-        \DB::table('admin_权限s')->delete();
+        \DB::table('admin_permissions')->delete();
 
-        \DB::table('admin_权限s')->insert(array(
+        \DB::table('admin_permissions')->insert(array(
             0 =>
             array(
                 'id' => 1,
@@ -203,7 +203,7 @@ class AdminPermissionsTableSeeder extends Seeder
             array(
                 'id' => 21,
                 'name' => '权限.修改',
-                'tag' => 'permission.show',
+                'tag' => 'permission.update',
                 'remark' => NULL,
                 'created_at' => '2021-01-05 10:18:35',
                 'updated_at' => '2021-01-05 10:18:35',
@@ -230,7 +230,7 @@ class AdminPermissionsTableSeeder extends Seeder
             array(
                 'id' => 24,
                 'name' => '获取角色权限',
-                'tag' => 'userRoles',
+                'tag' => 'userPermissions',
                 'remark' => NULL,
                 'created_at' => '2021-01-05 10:18:35',
                 'updated_at' => '2021-01-05 10:18:35',
