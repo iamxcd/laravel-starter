@@ -6,7 +6,6 @@ services:
         volumes:
             - "$PWD:/var/www/html"
             - "$PWD/docker/config/sites/:/etc/apache2/sites-available"
-            - "$PWD/docker/config/php/:/usr/local/etc/php"
         ports:
             - "9000:80"
     queue:
@@ -16,7 +15,6 @@ services:
         volumes:
             - "$PWD:/var/www/html"
             - "$PWD/docker/config/sites/:/etc/apache2/sites-available"
-            - "$PWD/docker/config/php/:/usr/local/etc/php"
     db:
         image: "mysql:5.7"
         restart: always
@@ -33,3 +31,8 @@ services:
         restart: always
         ports:
             - 9007:8080
+    nodejs:
+        build: ./docker/images/nodejs
+        volumes:
+            - "$PWD:/var/www/html"
+        command: npm i && npm run watch
